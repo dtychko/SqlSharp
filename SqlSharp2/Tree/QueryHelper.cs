@@ -24,7 +24,14 @@ namespace SqlSharp2.Tree
             return query.Add(new TableSource(table));
         }
 
-        public static Query Add(this Query query, ITableSource tableSource)
+        public static Query AddTable(this Query query, IQuery subQuery)
+        {
+            Argument.NotNull(query, "query");
+            Argument.NotNull(subQuery, "subQuery");
+            return query.Add(new SubQueryTableSource(subQuery));
+        }
+
+        public static Query Add(this Query query, TableSourceBase tableSource)
         {
             Argument.NotNull(query, "query");
             Argument.NotNull(tableSource, "tableSource");
@@ -75,7 +82,7 @@ namespace SqlSharp2.Tree
             return new Query(query.Select, query.From.ReplaceLast(newTableSource), query.Where);
         }
 
-        public static Query JoinLastTableSource(this Query query, ITableSource joinTableSource, StringPredicate on, JoinType joinType)
+        public static Query JoinLastTableSource(this Query query, TableSourceBase joinTableSource, StringPredicate on, JoinType joinType)
         {
             Argument.NotNull(query, "query");
             Argument.NotNull(joinTableSource, "joinTableSource");

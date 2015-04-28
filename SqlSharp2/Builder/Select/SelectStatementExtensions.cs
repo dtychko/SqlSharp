@@ -1,9 +1,8 @@
-﻿using SqlSharp2.Builder.Select;
-using SqlSharp2.Tree;
+﻿using SqlSharp2.Tree;
 
-namespace SqlSharp2.Builder
+namespace SqlSharp2.Builder.Select
 {
-    public static class SqlExtensions
+    public static class SelectStatementExtensions
     {
         public static IJoinState InnerJoin(this IFromState state, string table)
         {

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Argument.cs" />
+    <Compile Include="Builder\Predicate\PredicateExtensions.cs" />
     <Compile Include="Builder\Predicate\IAndExpressionState.cs" />
     <Compile Include="Builder\Predicate\IAndNotExpressionState.cs" />
     <Compile Include="Builder\Predicate\IAndNotState.cs" />
@@ -97,7 +98,7 @@
     <Compile Include="Builder\Select\Implementations\SelectStatementBuilderState.cs" />
     <Compile Include="Builder\Sql.cs" />
     <Compile Include="Builder\Select\Implementations\State.cs" />
-    <Compile Include="Builder\SqlExtensions.cs" />
+    <Compile Include="Builder\Select\SelectStatementExtensions.cs" />
     <Compile Include="Builder\Select\IFromAsState.cs" />
     <Compile Include="Builder\Select\IFromState.cs" />
     <Compile Include="Builder\Select\IJoinAsState.cs" />
@@ -133,11 +134,12 @@
     <Compile Include="Tree\SelectStatementHelper.cs" />
     <Compile Include="Tree\Select\IProjection.cs" />
     <Compile Include="Tree\IQuery.cs" />
-    <Compile Include="Tree\TableSource\ITableSource.cs" />
+    <Compile Include="Tree\TableSource\AliasedTableSource.cs" />
     <Compile Include="Tree\TableSource\JoinedTableSource.cs" />
     <Compile Include="Tree\JoinType.cs" />
     <Compile Include="Tree\ListNode.cs" />
     <Compile Include="Tree\TableSource\SubQueryTableSource.cs" />
+    <Compile Include="Tree\TableSource\TableSourceBase.cs" />
     <Compile Include="Tree\TreeNode.cs" />
     <Compile Include="Tree\Order\OrderListItem.cs" />
     <Compile Include="Tree\Order\OrderList.cs" />

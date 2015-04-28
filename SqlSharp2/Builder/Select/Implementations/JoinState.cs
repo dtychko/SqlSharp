@@ -4,11 +4,11 @@ namespace SqlSharp2.Builder.Select
 {
     internal class JoinState : QueryState, IJoinState, IJoinAsState
     {
-        private readonly TableSource _joinTableSource;
+        private readonly AliasedTableSource _joinTableSource;
         private readonly JoinType _joinType;
         
 
-        internal JoinState(Query query, TableSource joinTableSource, JoinType joinType)
+        internal JoinState(Query query, AliasedTableSource joinTableSource, JoinType joinType)
             : base(query)
         {
             _joinTableSource = Argument.NotNull(joinTableSource, "joinTableSource");
@@ -19,7 +19,7 @@ namespace SqlSharp2.Builder.Select
         public IJoinAsState As(string alias)
         {
             Argument.NotWhiteSpace(alias, "alias");
-            var joinTableSource = new TableSource(_joinTableSource.Table, alias);
+            var joinTableSource = _joinTableSource.As(alias);
             return new JoinState(Query, joinTableSource, _joinType);
         }
 

@@ -19,7 +19,8 @@ namespace SqlSharp2.Builder.Select
 
         public IFromState From(IQuery subquery)
         {
-            throw new NotImplementedException();
+            Argument.NotNull(subquery, "subquery");
+            return new FromState(Query.AddTable(subquery));
         }
 
         public IFromAsState As(string alias)
@@ -37,7 +38,9 @@ namespace SqlSharp2.Builder.Select
 
         public IJoinState Join(IQuery subquery, JoinType joinType)
         {
-            throw new NotImplementedException();
+            Argument.NotNull(subquery, "subquery");
+            var joinTableSource = new SubQueryTableSource(subquery);
+            return new JoinState(Query, joinTableSource, joinType);
         }
 
         public IOrderByState OrderBy(string column)

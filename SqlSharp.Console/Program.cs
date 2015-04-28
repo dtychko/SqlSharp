@@ -1,6 +1,8 @@
-﻿using SqlSharp.Builder;
-using SqlSharp.Expressions;
-using SqlSharp2.Builder.Predicate.Implementations;
+﻿using SqlSharp2.Builder;
+using SqlSharp2.Builder.Predicate;
+using SqlSharp2.Builder.Select;
+using SqlSharp2.Tree;
+using Predicate = SqlSharp2.Builder.Predicate.Predicate;
 
 namespace SqlSharp.Console
 {
@@ -35,8 +37,8 @@ namespace SqlSharp.Console
                     .InnerJoin("table2").As("T2").On("T1.Id = T2.Id")
                     .Join("table3", JoinType.LeftOuter).As("T3").On("T1.Id = T3.Id")
                 .From("table4");
-            var sqlExpression = sql.Expression;
-            new ConsoleExpressionVisitor().Visit(sqlExpression);
+            var sqlExpression = sql.AsQuery();
+            //new ConsoleExpressionVisitor().Visit(sqlExpression);
 
             var query1 = SqlSharp2.Builder.Sql
                 .Select("*")

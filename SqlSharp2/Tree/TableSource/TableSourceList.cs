@@ -3,28 +3,28 @@ using System.Collections.Immutable;
 
 namespace SqlSharp2.Tree
 {
-    public class TableSourceList : ListNode<ITableSource>
+    public class TableSourceList : ListNode<TableSourceBase>
     {
         internal static TableSourceList Empty
         {
-            get { return new TableSourceList(ImmutableList<ITableSource>.Empty); }
+            get { return new TableSourceList(ImmutableList<TableSourceBase>.Empty); }
         }
 
 
-        internal TableSourceList(IImmutableList<ITableSource> items)
+        internal TableSourceList(IImmutableList<TableSourceBase> items)
             : base(items)
         {
         }
 
 
-        internal TableSourceList Add(ITableSource tableSource)
+        internal TableSourceList Add(TableSourceBase tableSource)
         {
             Argument.NotNull(tableSource, "tableSource");
             var selectList = new TableSourceList(InternalItems.Add(tableSource));
             return selectList;
         }
 
-        internal TableSourceList ReplaceLast(ITableSource tableSource)
+        internal TableSourceList ReplaceLast(TableSourceBase tableSource)
         {
             Argument.NotNull(tableSource, "tableSource");
             if (InternalItems.Count == 0)

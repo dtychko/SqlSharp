@@ -1,10 +1,8 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public class SubQueryTableSource : TreeNode, ITableSource
+    public class SubQueryTableSource : AliasedTableSource
     {
         public IQuery Query { get; private set; }
-
-        public string Alias { get; private set; }
 
 
         internal SubQueryTableSource(IQuery query)
@@ -13,11 +11,16 @@
         }
 
         internal SubQueryTableSource(IQuery query, string alias)
+            : base(alias)
         {
             Query = Argument.NotNull(query, "query");
-            Alias = alias;
         }
 
+
+        protected internal override AliasedTableSource As(string alias)
+        {
+            return new SubQueryTableSource(Query, alias);
+        }
 
         protected internal override void Accept(TreeVisitor visitor)
         {
