@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A540A65-6DC2-4F35-AA12-842B0803F659}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlSharp2</RootNamespace>
+    <AssemblyName>SqlSharp2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Argument.cs" />
+    <Compile Include="Builder\Implementations\FromState.cs" />
+    <Compile Include="Builder\Implementations\JoinState.cs" />
+    <Compile Include="Builder\Implementations\OrderByState.cs" />
+    <Compile Include="Builder\Predicate\Implementations\InitialState.cs" />
+    <Compile Include="Builder\Predicate\Implementations\Predicate.cs" />
+    <Compile Include="Builder\Predicate\IPredicateState.cs" />
+    <Compile Include="Builder\Proxies\FromAsStateProxy.cs" />
+    <Compile Include="Builder\Proxies\FromStateProxy.cs" />
+    <Compile Include="Builder\Proxies\JoinAsStateProxy.cs" />
+    <Compile Include="Builder\Proxies\JoinOnStateProxy.cs" />
+    <Compile Include="Builder\Proxies\JoinStateProxy.cs" />
+    <Compile Include="Builder\Proxies\OrderByInDirectionStateProxy.cs" />
+    <Compile Include="Builder\Proxies\OrderByStateProxy.cs" />
+    <Compile Include="Builder\Proxies\QueryStateProxy.cs" />
+    <Compile Include="Builder\Proxies\SelectAsStateProxy.cs" />
+    <Compile Include="Builder\Proxies\SelectStatementStateProxy.cs" />
+    <Compile Include="Builder\Proxies\SelectStateProxy.cs" />
+    <Compile Include="Builder\Proxies\StateProxy.cs" />
+    <Compile Include="Builder\Proxies\StateProxy{TState}.cs" />
+    <Compile Include="Builder\Implementations\QueryState.cs" />
+    <Compile Include="Builder\Implementations\SelectState.cs" />
+    <Compile Include="Builder\Implementations\SelectStatementState.cs" />
+    <Compile Include="Builder\Sql.cs" />
+    <Compile Include="Builder\Implementations\State.cs" />
+    <Compile Include="Builder\StateExtensions.cs" />
+    <Compile Include="Builder\IFromAsState.cs" />
+    <Compile Include="Builder\IFromState.cs" />
+    <Compile Include="Builder\IJoinAsState.cs" />
+    <Compile Include="Builder\IJoinOnState.cs" />
+    <Compile Include="Builder\IJoinState.cs" />
+    <Compile Include="Builder\IOrderByInDirectionState.cs" />
+    <Compile Include="Builder\IOrderByState.cs" />
+    <Compile Include="Builder\IQueryState.cs" />
+    <Compile Include="Builder\ISelectAsState.cs" />
+    <Compile Include="Builder\ISelectState.cs" />
+    <Compile Include="Builder\ISelectStatementState.cs" />
+    <Compile Include="Tree\Predicate\BetweenPredicate.cs" />
+    <Compile Include="Tree\Predicate\BinaryOperationType.cs" />
+    <Compile Include="Tree\Predicate\BinaryPredicate.cs" />
+    <Compile Include="Tree\Predicate\BinarySubQueryOperationType.cs" />
+    <Compile Include="Tree\Predicate\BinarySubQueryPredicate.cs" />
+    <Compile Include="Tree\Predicate\InPredicate.cs" />
+    <Compile Include="Tree\Predicate\InSubQueryPredicate.cs" />
+    <Compile Include="Tree\Predicate\NotPredicate.cs" />
+    <Compile Include="Tree\Predicate\Predicate.cs" />
+    <Compile Include="Tree\Predicate\PredicateConjuction.cs" />
+    <Compile Include="Tree\Predicate\PredicateDisjunction.cs" />
+    <Compile Include="Tree\Predicate\PredicateHelper.cs" />
+    <Compile Include="Tree\Predicate\PredicateJunction.cs" />
+    <Compile Include="Tree\Predicate\SubQueryPredicate.cs" />
+    <Compile Include="Tree\Predicate\SubQueryQuantifier.cs" />
+    <Compile Include="Tree\Predicate\UnaryOperationType.cs" />
+    <Compile Include="Tree\Predicate\UnaryPredicate.cs" />
+    <Compile Include="Tree\Predicate\UnarySubQueryOperationType.cs" />
+    <Compile Include="Tree\Predicate\UnarySubQueryPredicate.cs" />
+    <Compile Include="Tree\QueryHelper.cs" />
+    <Compile Include="Tree\Order\IOrderListItem.cs" />
+    <Compile Include="Tree\SelectStatementHelper.cs" />
+    <Compile Include="Tree\Select\IProjection.cs" />
+    <Compile Include="Tree\IQuery.cs" />
+    <Compile Include="Tree\TableSource\ITableSource.cs" />
+    <Compile Include="Tree\TableSource\JoinedTableSource.cs" />
+    <Compile Include="Tree\JoinType.cs" />
+    <Compile Include="Tree\ListNode.cs" />
+    <Compile Include="Tree\TableSource\SubQueryTableSource.cs" />
+    <Compile Include="Tree\TreeNode.cs" />
+    <Compile Include="Tree\Order\OrderListItem.cs" />
+    <Compile Include="Tree\Order\OrderList.cs" />
+    <Compile Include="Tree\OrderDirection.cs" />
+    <Compile Include="Tree\Predicate\StringPredicate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree\Query.cs" />
+    <Compile Include="Tree\Select\SelectList.cs" />
+    <Compile Include="Tree\Select\SelectListItem.cs" />
+    <Compile Include="Tree\SelectStatement.cs" />
+    <Compile Include="Tree\TableSource\TableSource.cs" />
+    <Compile Include="Tree\TableSource\TableSourceList.cs" />
+    <Compile Include="Tree\TreeVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD429115-C969-45D6-9439-1142EB17E014}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlSharp</RootNamespace>
+    <AssemblyName>SqlSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Argument.cs" />
+    <Compile Include="Builder\Proxies\FinalStateProxy.cs" />
+    <Compile Include="Builder\Proxies\JoinAsStateProxy.cs" />
+    <Compile Include="Builder\Proxies\JoinOnStateProxy.cs" />
+    <Compile Include="Builder\Proxies\JoinStateProxy.cs" />
+    <Compile Include="Builder\Sql.cs" />
+    <Compile Include="Builder\FromState.cs" />
+    <Compile Include="Builder\StateExtensions.cs" />
+    <Compile Include="Builder\States\IFinalState.cs" />
+    <Compile Include="Builder\States\IFromAsState.cs" />
+    <Compile Include="Builder\States\IFromState.cs" />
+    <Compile Include="Builder\States\IJoinAsState.cs" />
+    <Compile Include="Builder\States\IJoinOnState.cs" />
+    <Compile Include="Builder\States\IJoinState.cs" />
+    <Compile Include="Builder\States\ISelectAsState.cs" />
+    <Compile Include="Builder\States\ISelectState.cs" />
+    <Compile Include="Builder\JoinState.cs" />
+    <Compile Include="Builder\Proxies\FromAsStateProxy.cs" />
+    <Compile Include="Builder\Proxies\FromStateProxy.cs" />
+    <Compile Include="Builder\Proxies\SelectAsStateProxy.cs" />
+    <Compile Include="Builder\Proxies\SelectStateProxy.cs" />
+    <Compile Include="Builder\Proxies\StateProxy.cs" />
+    <Compile Include="Builder\Proxies\StateProxy{TState}.cs" />
+    <Compile Include="Builder\SelectState.cs" />
+    <Compile Include="Expressions\BinaryExpression.cs" />
+    <Compile Include="Expressions\ColumnNameExpression.cs" />
+    <Compile Include="Expressions\ExpressionType.cs" />
+    <Compile Include="Expressions\UnaryExpression.cs" />
+    <Compile Include="Expressions\TableJoinExpression.cs" />
+    <Compile Include="Expressions\NameExpression.cs" />
+    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Expressions\ExpressionVisitor.cs" />
+    <Compile Include="Expressions\JoinType.cs" />
+    <Compile Include="Expressions\SqlSelectExpression.cs" />
+    <Compile Include="Expressions\TableNameExpression.cs" />
+    <Compile Include="Expressions\WhereExpression.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
