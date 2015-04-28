@@ -53,10 +53,6 @@
       <Project>{9A540A65-6DC2-4F35-AA12-842B0803F659}</Project>
       <Name>SqlSharp2</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SqlSharp\SqlSharp.csproj">
-      <Project>{cd429115-c969-45d6-9439-1142eb17e014}</Project>
-      <Name>SqlSharp</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

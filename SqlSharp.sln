@@ -3,12 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp", "SqlSharp\SqlSharp.csproj", "{CD429115-C969-45D6-9439-1142EB17E014}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp.Console", "SqlSharp.Console\SqlSharp.Console.csproj", "{43D541FE-63DC-40D2-949E-B3B752C46928}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CD429115-C969-45D6-9439-1142EB17E014} = {CD429115-C969-45D6-9439-1142EB17E014}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp2", "SqlSharp2\SqlSharp2.csproj", "{9A540A65-6DC2-4F35-AA12-842B0803F659}"
 EndProject
@@ -18,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CD429115-C969-45D6-9439-1142EB17E014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD429115-C969-45D6-9439-1142EB17E014}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD429115-C969-45D6-9439-1142EB17E014}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD429115-C969-45D6-9439-1142EB17E014}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43D541FE-63DC-40D2-949E-B3B752C46928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{43D541FE-63DC-40D2-949E-B3B752C46928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D541FE-63DC-40D2-949E-B3B752C46928}.Release|Any CPU.ActiveCfg = Release|Any CPU
