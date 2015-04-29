@@ -8,10 +8,10 @@ namespace SqlSharp2.Tree
         public static Query AddColumn(this Query query, string column)
         {
             Argument.NotWhiteSpace(column, "column");
-            return query.Add(new SelectListItem(column));
+            return query.Add(new ColumnProjection(column));
         }
 
-        public static Query Add(this Query query, IProjection projection)
+        public static Query Add(this Query query, ProjectionBase projection)
         {
             Argument.NotNull(query, "query");
             Argument.NotNull(projection, "projection");
@@ -47,7 +47,7 @@ namespace SqlSharp2.Tree
             {
                 throw new InvalidOperationException("Query's select list is empty.");
             }
-            var lastItem = lastProjection as SelectListItem;
+            var lastItem = lastProjection as ColumnProjection;
             if (lastItem == null)
             {
                 throw new InvalidOperationException("Unknown projection type.");
@@ -56,7 +56,7 @@ namespace SqlSharp2.Tree
             {
                 throw new InvalidOperationException("Last projection already has an alias.");
             }
-            var newItem = new SelectListItem(lastItem.Column, alias);
+            var newItem = new ColumnProjection(lastItem.Column, alias);
             return new Query(query.Select.ReplaceLast(newItem), query.From, query.Where);
         }
 

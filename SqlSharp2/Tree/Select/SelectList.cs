@@ -3,28 +3,28 @@ using System.Collections.Immutable;
 
 namespace SqlSharp2.Tree
 {
-    public class SelectList : ListNode<IProjection>
+    public class SelectList : ListNode<ProjectionBase>
     {
         internal static SelectList Empty
         {
-            get { return new SelectList(ImmutableList<IProjection>.Empty); }
+            get { return new SelectList(ImmutableList<ProjectionBase>.Empty); }
         }
 
 
-        internal SelectList(IImmutableList<IProjection> items)
+        internal SelectList(IImmutableList<ProjectionBase> items)
             : base(items)
         {
         }
 
 
-        internal SelectList Add(IProjection projection)
+        internal SelectList Add(ProjectionBase projection)
         {
             Argument.NotNull(projection, "projection");
             var selectList = new SelectList(InternalItems.Add(projection));
             return selectList;
         }
 
-        internal SelectList ReplaceLast(IProjection projection)
+        internal SelectList ReplaceLast(ProjectionBase projection)
         {
             Argument.NotNull(projection, "projection");
             if (InternalItems.Count == 0)

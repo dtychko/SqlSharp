@@ -132,8 +132,9 @@
     <Compile Include="Tree\QueryHelper.cs" />
     <Compile Include="Tree\Order\IOrderListItem.cs" />
     <Compile Include="Tree\SelectStatementHelper.cs" />
-    <Compile Include="Tree\Select\IProjection.cs" />
+    <Compile Include="Tree\Select\AliasedProjection.cs" />
     <Compile Include="Tree\IQuery.cs" />
+    <Compile Include="Tree\Select\ProjectionBase.cs" />
     <Compile Include="Tree\TableSource\AliasedTableSource.cs" />
     <Compile Include="Tree\TableSource\JoinedTableSource.cs" />
     <Compile Include="Tree\JoinType.cs" />
@@ -148,7 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tree\Query.cs" />
     <Compile Include="Tree\Select\SelectList.cs" />
-    <Compile Include="Tree\Select\SelectListItem.cs" />
+    <Compile Include="Tree\Select\ColumnProjection.cs" />
     <Compile Include="Tree\SelectStatement.cs" />
     <Compile Include="Tree\TableSource\TableSource.cs" />
     <Compile Include="Tree\TableSource\TableSourceList.cs" />

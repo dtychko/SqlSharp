@@ -32,7 +32,7 @@ namespace SqlSharp2.Tree
             }
         }
 
-        protected internal virtual void VisitSelectListItem(SelectListItem item)
+        protected internal virtual void VisitSelectListItem(ColumnProjection item)
         {
         }
 
