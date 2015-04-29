@@ -12,10 +12,10 @@
         {
         }
 
-        internal SelectStatement(Query query, OrderList orderBy)
+        internal SelectStatement(Query query, OrderList order)
         {
             Query = Argument.NotNull(query, "query");
-            Order = orderBy;
+            Order = order;
         }
 
         protected internal override void Accept(TreeVisitor visitor)

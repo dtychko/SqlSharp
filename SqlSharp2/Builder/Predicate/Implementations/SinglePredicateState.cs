@@ -2,7 +2,7 @@
 {
     internal class SinglePredicateState : PredicateBuilderState, ISinglePredicateState
     {
-        public SinglePredicateState(Tree.Predicate predicate)
+        public SinglePredicateState(Tree.PredicateBase predicate)
             : base(predicate)
         {
         }
@@ -19,7 +19,7 @@
             return AndState(expression);
         }
 
-        public IPredicateConjuctionState And(Tree.Predicate predicate)
+        public IPredicateConjuctionState And(Tree.PredicateBase predicate)
         {
             Argument.NotNull(predicate, "predicate");
             return PredicateConjuctionState(predicate);
@@ -36,7 +36,7 @@
             return OrState(expression);
         }
 
-        public IPredicateDisjunctionState Or(Tree.Predicate predicate)
+        public IPredicateDisjunctionState Or(Tree.PredicateBase predicate)
         {
             Argument.NotNull(predicate, "predicate");
             return PredicateDisjunctionState(predicate);

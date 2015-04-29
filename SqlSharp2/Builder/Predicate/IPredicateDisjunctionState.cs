@@ -4,6 +4,6 @@
     {
         IOrState Or();
         IOrExpressionState Or(string expression);
-        IPredicateDisjunctionState Or(Tree.Predicate predicate);
+        IPredicateDisjunctionState Or(Tree.PredicateBase predicate);
     }
 }

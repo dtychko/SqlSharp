@@ -1,7 +1,9 @@
-﻿namespace SqlSharp2.Builder.Select
+﻿using SqlSharp2.Tree;
+
+namespace SqlSharp2.Builder.Select
 {
     public interface IJoinAsState
     {
-        IJoinOnState On(string condition);
+        IJoinOnState On(PredicateBase predicate);
     }
 }

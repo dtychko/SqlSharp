@@ -2,6 +2,6 @@
 {
     public interface IPredicateBuilder
     {
-        Tree.Predicate AsPredicate();
+        Tree.PredicateBase AsPredicate();
     }
 }

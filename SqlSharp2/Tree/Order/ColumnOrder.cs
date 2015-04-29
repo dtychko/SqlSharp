@@ -1,21 +1,19 @@
 namespace SqlSharp2.Tree
 {
-    public class OrderListItem : TreeNode, IOrderListItem
+    public class ColumnOrder : OrderBase
     {
         public string Column { get; private set; }
 
-        public OrderDirection Direction { get; private set; }
 
-
-        internal OrderListItem(string column)
+        internal ColumnOrder(string column)
             : this(column, OrderDirection.Default)
         {
         }
 
-        internal OrderListItem(string column, OrderDirection direction)
+        internal ColumnOrder(string column, OrderDirection direction)
+            : base(direction)
         {
             Column = Argument.NotWhiteSpace(column, "column");
-            Direction = direction;
         }
 
 

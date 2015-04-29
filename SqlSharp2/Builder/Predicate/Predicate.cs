@@ -26,5 +26,26 @@ namespace SqlSharp2.Builder.Predicate
         {
             return InitialState.Exists(query);
         }
+
+
+        public static PredicateConjuction And(PredicateBase left, PredicateBase right)
+        {
+            Argument.NotNull(left, "left");
+            Argument.NotNull(right, "right");
+            return new PredicateConjuction(left, right);
+        }
+
+        public static PredicateDisjunction Or(PredicateBase left, PredicateBase right)
+        {
+            Argument.NotNull(left, "left");
+            Argument.NotNull(right, "right");
+            return new PredicateDisjunction(left, right);
+        }
+
+        public static PredicateBase Not(PredicateBase predicate)
+        {
+            Argument.NotNull(predicate, "predicate");
+            return new NotPredicate(predicate);
+        }
     }
 }

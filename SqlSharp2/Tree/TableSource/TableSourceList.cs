@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace SqlSharp2.Tree
 {
-    public class TableSourceList : ListNode<TableSourceBase>
+    public class TableSourceList : TreeNodeList<TableSourceBase>
     {
         internal static TableSourceList Empty
         {
@@ -20,18 +20,18 @@ namespace SqlSharp2.Tree
         internal TableSourceList Add(TableSourceBase tableSource)
         {
             Argument.NotNull(tableSource, "tableSource");
-            var selectList = new TableSourceList(InternalItems.Add(tableSource));
+            var selectList = new TableSourceList(InternalNodes.Add(tableSource));
             return selectList;
         }
 
         internal TableSourceList ReplaceLast(TableSourceBase tableSource)
         {
             Argument.NotNull(tableSource, "tableSource");
-            if (InternalItems.Count == 0)
+            if (InternalNodes.Count == 0)
             {
                 throw new InvalidOperationException("Couldn't do ReplaceLast for empty list.");
             }
-            var selectList = new TableSourceList(InternalItems.SetItem(InternalItems.Count - 1, tableSource));
+            var selectList = new TableSourceList(InternalNodes.SetItem(InternalNodes.Count - 1, tableSource));
             return selectList;
         }
 

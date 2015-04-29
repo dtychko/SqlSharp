@@ -1,16 +1,16 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public class TableSource : AliasedTableSource
+    public class SimpleTableSource : AliasedTableSource
     {
         public string Table { get; private set; }
 
 
-        internal TableSource(string table)
+        internal SimpleTableSource(string table)
             : this(table, null)
         {
         }
 
-        internal TableSource(string table, string alias)
+        internal SimpleTableSource(string table, string alias)
             : base(alias)
         {
             Table = Argument.NotNull(table, "table");
@@ -19,12 +19,12 @@
 
         protected internal override AliasedTableSource As(string alias)
         {
-            return new TableSource(Table, alias);
+            return new SimpleTableSource(Table, alias);
         }
 
         protected internal override void Accept(TreeVisitor visitor)
         {
-            visitor.VisitTableSource(this);
+            visitor.VisitSimpleTableSource(this);
         }
     }
 }

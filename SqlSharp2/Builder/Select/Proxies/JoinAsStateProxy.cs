@@ -1,4 +1,6 @@
-﻿namespace SqlSharp2.Builder.Select
+﻿using SqlSharp2.Tree;
+
+namespace SqlSharp2.Builder.Select
 {
     internal class JoinAsStateProxy : StateProxy<IJoinAsState>, IJoinAsState
     {
@@ -8,9 +10,9 @@
         }
 
 
-        public IJoinOnState On(string condition)
+        public IJoinOnState On(PredicateBase predicate)
         {
-            return StateProxy.CreateFor(State.On(condition));
+            return StateProxy.CreateFor(State.On(predicate));
         }
     }
 }

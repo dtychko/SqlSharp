@@ -4,10 +4,10 @@ namespace SqlSharp2.Builder.Predicate
 {
     internal abstract class PredicateState : State
     {
-        protected Tree.Predicate Predicate { get; private set; }
+        protected Tree.PredicateBase Predicate { get; private set; }
 
 
-        protected PredicateState(Tree.Predicate predicate)
+        protected PredicateState(Tree.PredicateBase predicate)
         {
             Predicate = Argument.NotNull(predicate, "predicate");
         }
@@ -53,21 +53,21 @@ namespace SqlSharp2.Builder.Predicate
             return new OrState(Predicate, true);
         }
 
-        protected IPredicateConjuctionState PredicateConjuctionState(Tree.Predicate nextPredicate, bool negate = false)
+        protected IPredicateConjuctionState PredicateConjuctionState(Tree.PredicateBase nextPredicate, bool negate = false)
         {
             if (negate)
             {
-                nextPredicate = Tree.Predicate.Not(nextPredicate);
+                nextPredicate = Builder.Predicate.Predicate.Not(nextPredicate);
             }
             var conjuction = PredicateHelper.AppendOrCreateConjuction(Predicate, nextPredicate);
             return new PredicateConjuctionState(conjuction);
         }
 
-        protected PredicateDisjunctionState PredicateDisjunctionState(Tree.Predicate nextPredicate, bool negate = false)
+        protected PredicateDisjunctionState PredicateDisjunctionState(Tree.PredicateBase nextPredicate, bool negate = false)
         {
             if (negate)
             {
-                nextPredicate = Tree.Predicate.Not(nextPredicate);
+                nextPredicate = Builder.Predicate.Predicate.Not(nextPredicate);
             }
             var disjunction = PredicateHelper.AppendOrCreateDisjunction(Predicate, nextPredicate);
             return new PredicateDisjunctionState(disjunction);

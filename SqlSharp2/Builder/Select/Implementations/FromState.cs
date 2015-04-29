@@ -32,7 +32,7 @@ namespace SqlSharp2.Builder.Select
         public IJoinState Join(string table, JoinType joinType)
         {
             Argument.NotWhiteSpace(table, "table");
-            var joinTableSource = new TableSource(table);
+            var joinTableSource = new SimpleTableSource(table);
             return new JoinState(Query, joinTableSource, joinType);
         }
 
@@ -46,7 +46,7 @@ namespace SqlSharp2.Builder.Select
         public IOrderByState OrderBy(string column)
         {
             Argument.NotWhiteSpace(column, "column");
-            var newItem = new OrderListItem(column);
+            var newItem = new ColumnOrder(column);
             var selectStatement = new SelectStatement(Query).Add(newItem);
             return new OrderByState(selectStatement);
         }

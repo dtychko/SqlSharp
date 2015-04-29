@@ -1,11 +1,11 @@
 namespace SqlSharp2.Tree
 {
-    public class NotPredicate : Predicate
+    public class NotPredicate : PredicateBase
     {
-        public Predicate Predicate { get; private set; }
+        public PredicateBase Predicate { get; private set; }
 
 
-        internal NotPredicate(Predicate predicate)
+        internal NotPredicate(PredicateBase predicate)
         {
             Predicate = Argument.NotNull(predicate, "predicate");
         }

@@ -15,23 +15,23 @@ namespace SqlSharp2.Builder.Select
         public IOrderByState OrderBy(string column)
         {
             Argument.NotWhiteSpace(column, "column");
-            var newItem = new OrderListItem(column);
+            var newItem = new ColumnOrder(column);
             return new OrderByState(Statement.Add(newItem));
         }
 
         public IOrderByInDirectionState InDirection(OrderDirection direction)
         {
-            var replaceItem = Statement.Order.InternalItems.LastOrDefault();
+            var replaceItem = Statement.Order.InternalNodes.LastOrDefault();
             if (replaceItem == null)
             {
                 throw new Exception();
             }
-            var replaceOrderByListItem = replaceItem as OrderListItem;
+            var replaceOrderByListItem = replaceItem as ColumnOrder;
             if (replaceOrderByListItem == null)
             {
                 throw new Exception();
             }
-            var newItem = new OrderListItem(replaceOrderByListItem.Column, direction);
+            var newItem = new ColumnOrder(replaceOrderByListItem.Column, direction);
             return new OrderByState(Statement.Add(newItem));
         }
     }

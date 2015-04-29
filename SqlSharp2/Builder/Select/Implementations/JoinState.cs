@@ -23,11 +23,10 @@ namespace SqlSharp2.Builder.Select
             return new JoinState(Query, joinTableSource, _joinType);
         }
 
-        public IJoinOnState On(string predicate)
+        public IJoinOnState On(PredicateBase predicate)
         {
-            Argument.NotWhiteSpace(predicate, "predicate");
-            var on = new StringPredicate(predicate);
-            return new FromState(Query.JoinLastTableSource(_joinTableSource, on, _joinType));
+            Argument.NotNull(predicate, "predicate");
+            return new FromState(Query.JoinLastTableSource(_joinTableSource, predicate, _joinType));
         }
     }
 }

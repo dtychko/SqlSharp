@@ -6,12 +6,12 @@
 
         public TableSourceBase Right { get; private set; }
 
-        public StringPredicate On { get; private set; }
+        public PredicateBase On { get; private set; }
 
         public JoinType Type { get; private set; }
 
 
-        internal JoinedTableSource(TableSourceBase left, TableSourceBase right, StringPredicate on, JoinType type)
+        internal JoinedTableSource(TableSourceBase left, TableSourceBase right, PredicateBase on, JoinType type)
         {
             Left = Argument.NotNull(left, "left");
             Right = Argument.NotNull(right, "right");

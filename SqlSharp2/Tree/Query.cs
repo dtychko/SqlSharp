@@ -12,10 +12,10 @@
 
         public TableSourceList From { get; private set; }
 
-        public StringPredicate Where { get; private set; }
+        public PredicateBase Where { get; private set; }
 
 
-        internal Query(SelectList select, TableSourceList from, StringPredicate where)
+        internal Query(SelectList select, TableSourceList from, PredicateBase where)
         {
             Select = Argument.NotNull(select, "select");
             From = Argument.NotNull(from, "from");
@@ -23,10 +23,10 @@
         }
 
 
-        public static implicit operator SelectStatement(Query query)
-        {
-            return new SelectStatement(query);
-        }
+        //public static implicit operator SelectStatement(Query query)
+        //{
+        //    return new SelectStatement(query);
+        //}
 
 
         protected internal override void Accept(TreeVisitor visitor)

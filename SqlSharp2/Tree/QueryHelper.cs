@@ -21,7 +21,7 @@ namespace SqlSharp2.Tree
         public static Query AddTable(this Query query, string table)
         {
             Argument.NotWhiteSpace(table, "table");
-            return query.Add(new TableSource(table));
+            return query.Add(new SimpleTableSource(table));
         }
 
         public static Query AddTable(this Query query, IQuery subQuery)
@@ -42,7 +42,7 @@ namespace SqlSharp2.Tree
         {
             Argument.NotNull(query, "query");
             Argument.NotWhiteSpace(alias, "alias");
-            var lastProjection = query.Select.InternalItems.LastOrDefault();
+            var lastProjection = query.Select.InternalNodes.LastOrDefault();
             if (lastProjection == null)
             {
                 throw new InvalidOperationException("Query's select list is empty.");
@@ -64,12 +64,12 @@ namespace SqlSharp2.Tree
         {
             Argument.NotNull(query, "query");
             Argument.NotWhiteSpace(alias, "alias");
-            var lastTableSource = query.From.InternalItems.LastOrDefault();
+            var lastTableSource = query.From.InternalNodes.LastOrDefault();
             if (lastTableSource == null)
             {
                 throw new InvalidOperationException("Query's table source list is empty.");
             }
-            var lastItem = lastTableSource as TableSource;
+            var lastItem = lastTableSource as SimpleTableSource;
             if (lastItem == null)
             {
                 throw new InvalidOperationException("An alias couldn't be added to the last query's table source.");
@@ -78,15 +78,15 @@ namespace SqlSharp2.Tree
             {
                 throw new InvalidOperationException("Last table source already has an alias.");
             }
-            var newTableSource = new TableSource(lastItem.Table, alias);
+            var newTableSource = new SimpleTableSource(lastItem.Table, alias);
             return new Query(query.Select, query.From.ReplaceLast(newTableSource), query.Where);
         }
 
-        public static Query JoinLastTableSource(this Query query, TableSourceBase joinTableSource, StringPredicate on, JoinType joinType)
+        public static Query JoinLastTableSource(this Query query, TableSourceBase joinTableSource, PredicateBase on, JoinType joinType)
         {
             Argument.NotNull(query, "query");
             Argument.NotNull(joinTableSource, "joinTableSource");
-            var lastTableSource = query.From.InternalItems.LastOrDefault();
+            var lastTableSource = query.From.InternalNodes.LastOrDefault();
             if (lastTableSource == null)
             {
                 throw new InvalidOperationException("Query's table source list is empty.");

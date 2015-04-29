@@ -2,7 +2,7 @@ namespace SqlSharp2.Builder.Predicate
 {
     internal class PredicateDisjunctionState : PredicateBuilderState, IPredicateDisjunctionState
     {
-        public PredicateDisjunctionState(Tree.Predicate predicate)
+        public PredicateDisjunctionState(Tree.PredicateBase predicate)
             : base(predicate)
         {
         }
@@ -19,7 +19,7 @@ namespace SqlSharp2.Builder.Predicate
             return OrState(expression);
         }
 
-        public IPredicateDisjunctionState Or(Tree.Predicate predicate)
+        public IPredicateDisjunctionState Or(Tree.PredicateBase predicate)
         {
             Argument.NotNull(predicate, "predicate");
             return PredicateDisjunctionState(predicate);

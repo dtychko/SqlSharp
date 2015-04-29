@@ -1,6 +1,6 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public class UnaryPredicate : Predicate
+    public class UnaryPredicate : PredicateBase
     {
         public object Expression { get; private set; }
 

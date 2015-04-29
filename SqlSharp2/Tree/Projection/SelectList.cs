@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace SqlSharp2.Tree
 {
-    public class SelectList : ListNode<ProjectionBase>
+    public class SelectList : TreeNodeList<ProjectionBase>
     {
         internal static SelectList Empty
         {
@@ -11,8 +11,8 @@ namespace SqlSharp2.Tree
         }
 
 
-        internal SelectList(IImmutableList<ProjectionBase> items)
-            : base(items)
+        internal SelectList(IImmutableList<ProjectionBase> projections)
+            : base(projections)
         {
         }
 
@@ -20,18 +20,18 @@ namespace SqlSharp2.Tree
         internal SelectList Add(ProjectionBase projection)
         {
             Argument.NotNull(projection, "projection");
-            var selectList = new SelectList(InternalItems.Add(projection));
+            var selectList = new SelectList(InternalNodes.Add(projection));
             return selectList;
         }
 
         internal SelectList ReplaceLast(ProjectionBase projection)
         {
             Argument.NotNull(projection, "projection");
-            if (InternalItems.Count == 0)
+            if (InternalNodes.Count == 0)
             {
                 throw new InvalidOperationException("Couldn't do ReplaceLast for empty list.");
             }
-            var selectList = new SelectList(InternalItems.SetItem(InternalItems.Count - 1, projection));
+            var selectList = new SelectList(InternalNodes.SetItem(InternalNodes.Count - 1, projection));
             return selectList;
         }
 

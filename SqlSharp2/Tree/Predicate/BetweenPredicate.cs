@@ -1,6 +1,6 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public class BetweenPredicate : Predicate
+    public class BetweenPredicate : PredicateBase
     {
         public object Expression { get; private set; }
 

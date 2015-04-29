@@ -7,12 +7,12 @@ namespace SqlSharp2.Builder.Predicate
         private readonly bool _negate;
 
 
-        public AndState(Tree.Predicate predicate)
+        public AndState(Tree.PredicateBase predicate)
             : this(predicate, false)
         {
         }
 
-        public AndState(Tree.Predicate predicate, bool negate)
+        public AndState(Tree.PredicateBase predicate, bool negate)
             : base(predicate)
         {
             _negate = negate;

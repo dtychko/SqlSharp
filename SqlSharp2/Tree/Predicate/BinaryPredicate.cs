@@ -1,6 +1,6 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public class BinaryPredicate : Predicate
+    public class BinaryPredicate : PredicateBase
     {
         public object Left { get; private set; }
 

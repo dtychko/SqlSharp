@@ -1,6 +1,6 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public abstract class SubQueryPredicate : Predicate
+    public abstract class SubQueryPredicate : PredicateBase
     {
         public IQuery Query { get; private set; }
 

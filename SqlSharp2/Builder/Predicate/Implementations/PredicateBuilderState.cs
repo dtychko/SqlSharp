@@ -2,13 +2,13 @@ namespace SqlSharp2.Builder.Predicate
 {
     internal abstract class PredicateBuilderState : PredicateState, IPredicateBuilder
     {
-        protected PredicateBuilderState(Tree.Predicate predicate)
+        protected PredicateBuilderState(Tree.PredicateBase predicate)
             : base(predicate)
         {
         }
 
 
-        public Tree.Predicate AsPredicate()
+        public Tree.PredicateBase AsPredicate()
         {
             return Predicate;
         }

@@ -26,7 +26,7 @@ namespace SqlSharp2.Tree
 
         protected internal virtual void VisitSelectList(SelectList list)
         {
-            foreach (var item in list.Items.OfType<TreeNode>())
+            foreach (var item in list.Nodes.OfType<TreeNode>())
             {
                 Visit(item);
             }
@@ -38,13 +38,13 @@ namespace SqlSharp2.Tree
 
         protected internal virtual void VisitTableSourceList(TableSourceList list)
         {
-            foreach (var item in list.Items.OfType<TreeNode>())
+            foreach (var item in list.Nodes.OfType<TreeNode>())
             {
                 Visit(item);
             }
         }
 
-        protected internal virtual void VisitTableSource(TableSource tableSource)
+        protected internal virtual void VisitSimpleTableSource(SimpleTableSource tableSource)
         {
         }
 
@@ -60,19 +60,15 @@ namespace SqlSharp2.Tree
             Visit(tableSource.On);
         }
 
-        protected internal virtual void VisitPredicate(StringPredicate predicate)
-        {
-        }
-
         protected internal virtual void VisitOrderByList(OrderList list)
         {
-            foreach (var item in list.Items.OfType<TreeNode>())
+            foreach (var item in list.Nodes.OfType<TreeNode>())
             {
                 Visit(item);
             }
         }
 
-        protected internal virtual void VisitOrderByListItem(OrderListItem item)
+        protected internal virtual void VisitOrderByListItem(ColumnOrder item)
         {
         }
 

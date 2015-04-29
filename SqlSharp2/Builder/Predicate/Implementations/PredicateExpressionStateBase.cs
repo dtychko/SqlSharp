@@ -5,7 +5,7 @@
         protected string Expression { get; private set; }
 
 
-        protected PredicateExpressionStateBase(Tree.Predicate predicate, string expression)
+        protected PredicateExpressionStateBase(Tree.PredicateBase predicate, string expression)
             : base(predicate)
         {
             Expression = Argument.NotWhiteSpace(expression, "expression");

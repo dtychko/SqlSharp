@@ -6,17 +6,22 @@ namespace SqlSharp2.Tree
     {
         internal static PredicateConjuction Empty
         {
-            get { return new PredicateConjuction(ImmutableList<Predicate>.Empty); }
+            get { return new PredicateConjuction(ImmutableList<PredicateBase>.Empty); }
         }
 
 
-        internal PredicateConjuction(IImmutableList<Predicate> predicates) 
+        internal PredicateConjuction(PredicateBase firstPredicate, PredicateBase secondPredicate)
+            : base(firstPredicate, secondPredicate)
+        {
+        }
+
+        internal PredicateConjuction(IImmutableList<PredicateBase> predicates) 
             : base(predicates)
         {
         }
 
 
-        internal PredicateConjuction Add(Predicate predicate)
+        internal PredicateConjuction Add(PredicateBase predicate)
         {
             Argument.NotNull(predicate, "predicate");
             var result = new PredicateConjuction(InternalPredicates.Add(predicate));

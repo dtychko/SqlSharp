@@ -3,35 +3,35 @@ using System.Collections.Immutable;
 
 namespace SqlSharp2.Tree
 {
-    public class OrderList : ListNode<IOrderListItem>
+    public class OrderList : TreeNodeList<OrderBase>
     {
         internal static OrderList Empty
         {
-            get { return new OrderList(ImmutableList<IOrderListItem>.Empty); }
+            get { return new OrderList(ImmutableList<OrderBase>.Empty); }
         }
 
 
-        internal OrderList(IImmutableList<IOrderListItem> items)
-            : base(items)
+        internal OrderList(IImmutableList<OrderBase> orders)
+            : base(orders)
         {
         }
 
 
-        internal OrderList Add(IOrderListItem item)
+        internal OrderList Add(OrderBase order)
         {
-            Argument.NotNull(item, "item");
-            var selectList = new OrderList(InternalItems.Add(item));
+            Argument.NotNull(order, "order");
+            var selectList = new OrderList(InternalNodes.Add(order));
             return selectList;
         }
 
-        internal OrderList ReplaceLast(IOrderListItem item)
+        internal OrderList ReplaceLast(OrderBase order)
         {
-            Argument.NotNull(item, "item");
-            if (InternalItems.Count == 0)
+            Argument.NotNull(order, "order");
+            if (InternalNodes.Count == 0)
             {
                 throw new InvalidOperationException("List is empty.");
             }
-            var selectList = new OrderList(InternalItems.SetItem(InternalItems.Count - 1, item));
+            var selectList = new OrderList(InternalNodes.SetItem(InternalNodes.Count - 1, order));
             return selectList;
         }
 

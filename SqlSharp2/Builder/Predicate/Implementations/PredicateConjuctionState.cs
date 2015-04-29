@@ -2,7 +2,7 @@ namespace SqlSharp2.Builder.Predicate
 {
     internal class PredicateConjuctionState : PredicateBuilderState, IPredicateConjuctionState
     {
-        public PredicateConjuctionState(Tree.Predicate predicate)
+        public PredicateConjuctionState(Tree.PredicateBase predicate)
             : base(predicate)
         {
         }
@@ -18,7 +18,7 @@ namespace SqlSharp2.Builder.Predicate
             return AndState(expression);
         }
 
-        public IPredicateConjuctionState And(Tree.Predicate predicate)
+        public IPredicateConjuctionState And(Tree.PredicateBase predicate)
         {
             Argument.NotNull(predicate, "predicate");
             return PredicateConjuctionState(predicate);

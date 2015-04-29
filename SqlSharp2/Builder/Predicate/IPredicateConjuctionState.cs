@@ -4,6 +4,6 @@
     {
         IAndState And();
         IAndExpressionState And(string expression);
-        IPredicateConjuctionState And(Tree.Predicate predicate);
+        IPredicateConjuctionState And(Tree.PredicateBase predicate);
     }
 }
