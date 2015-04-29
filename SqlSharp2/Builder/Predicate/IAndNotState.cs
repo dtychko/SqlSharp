@@ -4,6 +4,6 @@ namespace SqlSharp2.Builder.Predicate
 {
     public interface IAndNotState
     {
-        IPredicateConjuctionState Exists(IQuery subQuery);
+        IPredicateConjuctionState Exists(QueryBase subQuery);
     }
 }

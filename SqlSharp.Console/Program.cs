@@ -2,7 +2,6 @@
 using SqlSharp2.Builder.Predicate;
 using SqlSharp2.Builder.Select;
 using SqlSharp2.Tree;
-using Predicate = SqlSharp2.Builder.Predicate.Predicate;
 
 namespace SqlSharp.Console
 {

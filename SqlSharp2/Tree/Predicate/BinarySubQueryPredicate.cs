@@ -9,12 +9,12 @@
         public SubQueryQuantifier Quantifier { get; private set; }
 
 
-        internal BinarySubQueryPredicate(object expression, IQuery query, BinarySubQueryOperationType operationType)
+        internal BinarySubQueryPredicate(object expression, QueryBase query, BinarySubQueryOperationType operationType)
             : this(expression, query, operationType, SubQueryQuantifier.None)
         {
         }
 
-        internal BinarySubQueryPredicate(object expression, IQuery query, BinarySubQueryOperationType operationType, SubQueryQuantifier quantifier)
+        internal BinarySubQueryPredicate(object expression, QueryBase query, BinarySubQueryOperationType operationType, SubQueryQuantifier quantifier)
             : base(query)
         {
             Expression = Argument.NotNull(expression, "expression");

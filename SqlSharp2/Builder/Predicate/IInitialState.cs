@@ -7,6 +7,6 @@ namespace SqlSharp2.Builder.Predicate
         IForState For(string expression);
         INotForState Not(string expression);
         INotInitialState Not();
-        ISinglePredicateState Exists(IQuery query);
+        ISinglePredicateState Exists(QueryBase query);
     }
 }

@@ -4,6 +4,6 @@ namespace SqlSharp2.Builder.Predicate
 {
     public interface INotInitialState
     {
-        ISinglePredicateState Exists(IQuery query);
+        ISinglePredicateState Exists(QueryBase query);
     }
 }

@@ -5,7 +5,7 @@
         public UnarySubQueryOperationType OperationType { get; private set; }
 
 
-        internal UnarySubQueryPredicate(IQuery query, UnarySubQueryOperationType operationType)
+        internal UnarySubQueryPredicate(QueryBase query, UnarySubQueryOperationType operationType)
             : base(query)
         {
             OperationType = operationType;

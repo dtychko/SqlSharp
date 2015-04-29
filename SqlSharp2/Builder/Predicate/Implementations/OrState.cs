@@ -29,7 +29,7 @@ namespace SqlSharp2.Builder.Predicate
             return OrNotState(expression);
         }
 
-        public IPredicateDisjunctionState Exists(IQuery query)
+        public IPredicateDisjunctionState Exists(QueryBase query)
         {
             Argument.NotNull(query, "query");
             var predicate = new UnarySubQueryPredicate(query, UnarySubQueryOperationType.Exists);

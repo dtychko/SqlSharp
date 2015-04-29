@@ -28,7 +28,7 @@ namespace SqlSharp2.Builder.Select
             return new FromState(Query.AddTable(table));
         }
 
-        public IFromState From(IQuery subquery)
+        public IFromState From(QueryBase subquery)
         {
             throw new System.NotImplementedException();
         }

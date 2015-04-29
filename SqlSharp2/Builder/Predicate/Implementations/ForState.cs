@@ -27,7 +27,7 @@ namespace SqlSharp2.Builder.Predicate
             return InitialPredicateState(predicate, _negate);
         }
 
-        public ISinglePredicateState Compare(IQuery query, BinarySubQueryOperationType operationType, SubQueryQuantifier quantifier)
+        public ISinglePredicateState Compare(QueryBase query, BinarySubQueryOperationType operationType, SubQueryQuantifier quantifier)
         {
             Argument.NotNull(query, "query");
             var predicate = new BinarySubQueryPredicate(_expression, query, operationType, quantifier);

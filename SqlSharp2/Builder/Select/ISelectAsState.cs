@@ -6,6 +6,6 @@ namespace SqlSharp2.Builder.Select
     {
         ISelectState Select(string column);
         IFromState From(string table);
-        IFromState From(IQuery subquery);
+        IFromState From(QueryBase subquery);
     }
 }

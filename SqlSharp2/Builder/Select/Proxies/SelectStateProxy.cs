@@ -25,7 +25,7 @@ namespace SqlSharp2.Builder.Select
             return StateProxy.CreateFor(State.From(table));
         }
 
-        public IFromState From(IQuery subquery)
+        public IFromState From(QueryBase subquery)
         {
             return StateProxy.CreateFor(State.From(subquery));
         }

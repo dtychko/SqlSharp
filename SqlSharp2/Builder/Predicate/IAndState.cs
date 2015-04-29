@@ -6,6 +6,6 @@ namespace SqlSharp2.Builder.Predicate
     {
         IAndNotState Not();
         IAndNotExpressionState Not(string expression);
-        IPredicateConjuctionState Exists(IQuery query);
+        IPredicateConjuctionState Exists(QueryBase query);
     }
 }

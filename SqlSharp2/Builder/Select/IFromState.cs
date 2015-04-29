@@ -5,10 +5,10 @@ namespace SqlSharp2.Builder.Select
     public interface IFromState : IQueryState
     {
         IFromState From(string table);
-        IFromState From(IQuery subquery);
+        IFromState From(QueryBase subquery);
         IFromAsState As(string alias);
         IJoinState Join(string table, JoinType joinType);
-        IJoinState Join(IQuery subquery, JoinType joinType);
+        IJoinState Join(QueryBase subquery, JoinType joinType);
         IOrderByState OrderBy(string column);
     }
 }

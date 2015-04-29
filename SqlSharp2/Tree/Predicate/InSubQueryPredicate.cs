@@ -5,7 +5,7 @@
         public object Expression { get; private set; }
 
 
-        public InSubQueryPredicate(object expression, IQuery query)
+        public InSubQueryPredicate(object expression, QueryBase query)
             : base(query)
         {
             Expression = Argument.NotNull(expression, "expression");

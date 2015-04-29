@@ -1,6 +1,6 @@
 ﻿namespace SqlSharp2.Tree
 {
-    public class Query : TreeNode, IQuery
+    public class Query : QueryBase
     {
         internal static Query Empty
         {

@@ -2,10 +2,10 @@
 {
     public abstract class SubQueryPredicate : PredicateBase
     {
-        public IQuery Query { get; private set; }
+        public QueryBase Query { get; private set; }
 
 
-        internal SubQueryPredicate(IQuery query)
+        internal SubQueryPredicate(QueryBase query)
         {
             Query = Argument.NotNull(query, "query");
         }

@@ -26,7 +26,7 @@ namespace SqlSharp2.Builder.Predicate
             return PredicateDisjunctionState(predicate, _negate);
         }
 
-        public IPredicateDisjunctionState Compare(IQuery query, BinarySubQueryOperationType operationType,
+        public IPredicateDisjunctionState Compare(QueryBase query, BinarySubQueryOperationType operationType,
             SubQueryQuantifier quantifier)
         {
             Argument.NotNull(query, "query");

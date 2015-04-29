@@ -24,9 +24,29 @@ namespace SqlSharp2.Tree
             Visit(query.Where);
         }
 
+        protected internal virtual void VisitQueryUnion(QueryUnion union)
+        {
+            foreach (var query in union.Queries)
+            {
+                Visit(query);
+            }
+        }
+
+        protected internal virtual void VisitQueryExcept(QueryExcept except)
+        {
+            Visit(except.Left);
+            Visit(except.Right);
+        }
+
+        protected internal virtual void VisitQueryIntersect(QueryIntersect intersect)
+        {
+            Visit(intersect.Left);
+            Visit(intersect.Right);
+        }
+
         protected internal virtual void VisitSelectList(SelectList list)
         {
-            foreach (var item in list.Nodes.OfType<TreeNode>())
+            foreach (var item in list.Nodes)
             {
                 Visit(item);
             }
@@ -38,7 +58,7 @@ namespace SqlSharp2.Tree
 
         protected internal virtual void VisitTableSourceList(TableSourceList list)
         {
-            foreach (var item in list.Nodes.OfType<TreeNode>())
+            foreach (var item in list.Nodes)
             {
                 Visit(item);
             }
@@ -55,14 +75,14 @@ namespace SqlSharp2.Tree
 
         protected internal virtual void VisitJoinedTableSource(JoinedTableSource tableSource)
         {
-            Visit((TreeNode)tableSource.Left);
-            Visit((TreeNode)tableSource.Right);
+            Visit(tableSource.Left);
+            Visit(tableSource.Right);
             Visit(tableSource.On);
         }
 
         protected internal virtual void VisitOrderByList(OrderList list)
         {
-            foreach (var item in list.Nodes.OfType<TreeNode>())
+            foreach (var item in list.Nodes)
             {
                 Visit(item);
             }

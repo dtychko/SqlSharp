@@ -17,7 +17,7 @@ namespace SqlSharp2.Builder.Select
             return new FromState(Query.AddTable(table));
         }
 
-        public IFromState From(IQuery subquery)
+        public IFromState From(QueryBase subquery)
         {
             Argument.NotNull(subquery, "subquery");
             return new FromState(Query.AddTable(subquery));
@@ -36,7 +36,7 @@ namespace SqlSharp2.Builder.Select
             return new JoinState(Query, joinTableSource, joinType);
         }
 
-        public IJoinState Join(IQuery subquery, JoinType joinType)
+        public IJoinState Join(QueryBase subquery, JoinType joinType)
         {
             Argument.NotNull(subquery, "subquery");
             var joinTableSource = new SubQueryTableSource(subquery);

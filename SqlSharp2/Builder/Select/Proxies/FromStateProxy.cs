@@ -15,7 +15,7 @@ namespace SqlSharp2.Builder.Select
             return StateProxy.CreateFor(State.From(table));
         }
 
-        public IFromState From(IQuery subquery)
+        public IFromState From(QueryBase subquery)
         {
             return StateProxy.CreateFor(State.From(subquery));
         }
@@ -30,7 +30,7 @@ namespace SqlSharp2.Builder.Select
             return StateProxy.CreateFor(State.Join(table, joinType));
         }
 
-        public IJoinState Join(IQuery subquery, JoinType joinType)
+        public IJoinState Join(QueryBase subquery, JoinType joinType)
         {
             return StateProxy.CreateFor(State.Join(subquery, joinType));
         }

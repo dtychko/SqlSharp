@@ -24,7 +24,7 @@ namespace SqlSharp2.Tree
             return query.Add(new SimpleTableSource(table));
         }
 
-        public static Query AddTable(this Query query, IQuery subQuery)
+        public static Query AddTable(this Query query, QueryBase subQuery)
         {
             Argument.NotNull(query, "query");
             Argument.NotNull(subQuery, "subQuery");

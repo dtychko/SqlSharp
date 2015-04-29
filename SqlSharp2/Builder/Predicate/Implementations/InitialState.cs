@@ -35,7 +35,7 @@ namespace SqlSharp2.Builder.Predicate
             return new InitialState(true);
         }
 
-        public ISinglePredicateState Exists(IQuery query)
+        public ISinglePredicateState Exists(QueryBase query)
         {
             Argument.NotNull(query, "query");
             var predicate = new UnarySubQueryPredicate(query, UnarySubQueryOperationType.Exists);

@@ -2,15 +2,15 @@
 {
     public class SubQueryTableSource : AliasedTableSource
     {
-        public IQuery Query { get; private set; }
+        public QueryBase Query { get; private set; }
 
 
-        internal SubQueryTableSource(IQuery query)
+        internal SubQueryTableSource(QueryBase query)
             : this(query, null)
         {
         }
 
-        internal SubQueryTableSource(IQuery query, string alias)
+        internal SubQueryTableSource(QueryBase query, string alias)
             : base(alias)
         {
             Query = Argument.NotNull(query, "query");
