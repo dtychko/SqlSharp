@@ -24,7 +24,7 @@
 
         protected internal override void Accept(TreeVisitor visitor)
         {
-            visitor.VisitSelectListItem(this);
+            visitor.VisitColumnProjection(this);
         }
     }
 }

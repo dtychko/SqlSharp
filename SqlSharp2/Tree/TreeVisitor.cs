@@ -52,7 +52,7 @@ namespace SqlSharp2.Tree
             }
         }
 
-        protected internal virtual void VisitSelectListItem(ColumnProjection item)
+        protected internal virtual void VisitColumnProjection(ColumnProjection item)
         {
         }
 
@@ -70,7 +70,7 @@ namespace SqlSharp2.Tree
 
         protected internal virtual void VisitSubQueryTableSource(SubQueryTableSource tableSource)
         {
-            Visit((TreeNode)tableSource.Query);
+            Visit(tableSource.Query);
         }
 
         protected internal virtual void VisitJoinedTableSource(JoinedTableSource tableSource)
@@ -80,7 +80,7 @@ namespace SqlSharp2.Tree
             Visit(tableSource.On);
         }
 
-        protected internal virtual void VisitOrderByList(OrderList list)
+        protected internal virtual void VisitOrderList(OrderList list)
         {
             foreach (var item in list.Nodes)
             {
@@ -88,7 +88,7 @@ namespace SqlSharp2.Tree
             }
         }
 
-        protected internal virtual void VisitOrderByListItem(ColumnOrder item)
+        protected internal virtual void VisitColumnOrder(ColumnOrder item)
         {
         }
 

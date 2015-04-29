@@ -38,7 +38,7 @@ namespace SqlSharp2.Tree
 
         protected internal override void Accept(TreeVisitor visitor)
         {
-            visitor.VisitOrderByList(this);
+            visitor.VisitOrderList(this);
         }
     }
 }
