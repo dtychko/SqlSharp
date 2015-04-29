@@ -7,12 +7,12 @@ namespace SqlSharp2.Builder.Predicate
         private readonly bool _negate;
 
 
-        public OrExpressionState(Tree.PredicateBase predicate, string expression)
+        public OrExpressionState(PredicateBase predicate, string expression)
             : this(predicate, expression, false)
         {
         }
 
-        public OrExpressionState(Tree.PredicateBase predicate, string expression, bool negate)
+        public OrExpressionState(PredicateBase predicate, string expression, bool negate)
             : base(predicate, expression)
         {
             _negate = negate;

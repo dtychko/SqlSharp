@@ -4,10 +4,10 @@ namespace SqlSharp2.Builder.Predicate
 {
     internal abstract class PredicateState : State
     {
-        protected Tree.PredicateBase Predicate { get; private set; }
+        protected PredicateBase Predicate { get; private set; }
 
 
-        protected PredicateState(Tree.PredicateBase predicate)
+        protected PredicateState(PredicateBase predicate)
         {
             Predicate = Argument.NotNull(predicate, "predicate");
         }
@@ -53,7 +53,7 @@ namespace SqlSharp2.Builder.Predicate
             return new OrState(Predicate, true);
         }
 
-        protected IPredicateConjuctionState PredicateConjuctionState(Tree.PredicateBase nextPredicate, bool negate = false)
+        protected IPredicateConjuctionState PredicateConjuctionState(PredicateBase nextPredicate, bool negate = false)
         {
             if (negate)
             {
@@ -63,7 +63,7 @@ namespace SqlSharp2.Builder.Predicate
             return new PredicateConjuctionState(conjuction);
         }
 
-        protected PredicateDisjunctionState PredicateDisjunctionState(Tree.PredicateBase nextPredicate, bool negate = false)
+        protected PredicateDisjunctionState PredicateDisjunctionState(PredicateBase nextPredicate, bool negate = false)
         {
             if (negate)
             {

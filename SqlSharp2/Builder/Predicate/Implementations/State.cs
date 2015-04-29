@@ -1,8 +1,10 @@
+using SqlSharp2.Tree;
+
 namespace SqlSharp2.Builder.Predicate
 {
     internal abstract class State
     {
-        protected ISinglePredicateState InitialPredicateState(Tree.PredicateBase predicate, bool negate)
+        protected ISinglePredicateState InitialPredicateState(PredicateBase predicate, bool negate)
         {
             if (negate)
             {
